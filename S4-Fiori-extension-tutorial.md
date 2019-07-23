@@ -19,7 +19,7 @@ This guide will help you through the following process:
 
 ### Create New S4-Fiori Extension Project
 
-...#### Create a Dev Space in Stable
+#### Create a Dev Space in Stable
    1. Open the Stable WING landscape  
 [https://webide-stable.cfapps.sap.hana.ondemand.com/index.html?extensions=true](https://webide-stable.cfapps.sap.hana.ondemand.com/index.html?extensions=true)
    2. Select 'Create Dev Space'
