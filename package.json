@@ -1,0 +1,12 @@
+{
+  "name": "mta_bp",
+  "version": "0.0.1",
+  "devDependencies": {
+    "@sap/ui5-builder-webide-extension": "1.0.5"
+  },
+  "ui5": {
+    "dependencies": [
+      "@sap/ui5-builder-webide-extension"
+    ]
+  }
+}
