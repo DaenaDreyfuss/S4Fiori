@@ -27,8 +27,8 @@ This guide will help you through the following process:
    4. Select your Dev Space to start developing your application
    5. Select 'Open Workspace' and select the projects folder
 
-#### Develop an S4 Fiori Extension Project
-Create an S4 Fiori extension project from scratch using a Yeoman generator:   
+<br>
+#### Develop an S4 Fiori Extension Project Using YeoMan
   1. Open the **Terminal** via the menu bar (Terminal-->New Terminal)
   2. In the terminal navigate to the projects folder
   3. Run the **[yo](command:yo)** to start the Yeoman generator
@@ -44,15 +44,6 @@ Create an S4 Fiori extension project from scratch using a Yeoman generator:
         - What is the UI5 version? (**1.64**)
 	- Which template do you want to use? (**SAPUI5 Application**)
         - What is the view name? (**View1**)
-
-|
- Create an S4 Fiori extension project using 'Git Clone'
-  1. Open the **Terminal** via the menu bar (Terminal-->New Terminal)
-  2. Clone the the following project as seen below:
-     ```sh
-         > git clone https://github.wdf.sap.corp/i057517/mta_bp.git
-     ```
- |
  
 Upon completion, you will get the following folder structure
 
@@ -64,68 +55,25 @@ File / Folder | Purpose
 `mta.yaml` | Defines your application resources and dependencies
 `xs-security.json` | Defines your application security scopes and roles
 
-
+<br>
 ## Bind Application to S/4 OData Service   
-**As a prerequisite** you must have the "**S4Cloud_Business_Partner**" destination configured in you CF sub-account (generally, this would have been done by your sub-account administrator on the sub-account level). If you still don't have such destination or equivalent one, ask your sub-account administrator to create it, before you continue with this tutorial. 
+### Prerequisites
+   - The "**S4Cloud_Business_Partner**" destination has been configured in you CF sub-account
+   (generally, this would have been done by your sub-account administrator on the sub-account level). If you still don't have such destination or equivalent one, ask your sub-account administrator to create it, before you continue with this tutorial. 
 
-  In this step you will bind your UI application (e.g.: bp_app) to real S4 HANA cloud service. You can do this is in two ways, automatically or manually.
-  
-  **Automatically:**   
-  Run via command pallet "**View --> Find Command ...**" option (F1) the "**Add OData Service**".
+### Bind Application to S/4 HANA OData Cloud Service 
+   1. From the command pallet (F1) run the "**Add OData Service**" command
   ![Alt text](S4_Fiori_Extension_Data/add_odata_service.png?raw=true "Bind Services") 
-   
- After selecting "**Add OData Service** command, you will be prompted to select the UI module that you would like to bind to the OData service (**"Select an HTML5 module"**)
- You will then be prompted to select the destination you would like to use ("**Select an OData service destination**")
- **For China testing, select following destination: "S4Cloud_Business_Partner".**   
- The above commands will do the following:
- - Update the manifest.json file:
-    - Add "**dataSources**" to the 'sap.app' section including the uri to the selected destination
-    - Add default "**models**" parameter to the model section
- - Update the xs-app.json file:
-    - An additional route has been added with the selected destination route (as a first route entry in the "**routes**" section).
+   2. Select the UI module that you would like to bind to the OData service (**"Select an HTML5 module"**)
+   3. Select the destination you would like to use ("**Select S4Cloud_Business_Partner**")
+   4. Verify the following changes files were updated:
+   	- manifest.json file:
+		- "**dataSources**" was added to the 'sap.app' section including the uri to the selected destination
+		- A default "**models**" parameter was added to the model section
+ 	- xs-app.json file:
+    		- An additional route has been added with the selected destination route (as the first route entry in the "**routes**" section).
   
-  **Manually:**  
-Add the following content to manifest.json and xs-app.json files.
-_manifest.json_ file:
-- Update the **dataSource.mainService.uri** attribute:  
-    ~~~
-        "dataSources": {
-            "mainService": {
-                "uri": "S4Cloud_Business_Partner/",
-                "type": "OData",
-                "settings": {
-                    "localUri": "localService/metadata.xml"
-                }
-            }
-        }
-    ~~~
-
-- Add an additional model in the **models** object (if it doesn't already exist):
-    ~~~
-    "": {
-            "type": "sap.ui.model.odata.v2.ODataModel",
-            "settings": {
-		"refreshAfterChange": false,
-                "defaultBindingMode": "TwoWay",
-                "defaultCountMode": "Inline"
-            },
-            "dataSource": "mainService",
-            "preload": true
-         }
-    ~~~     
-
-- xs-app.json_ file:  
-  Add an additional route in the "**routes**" attribute. The added route should point at the selected destination name. The added route should appear above all other routes:
-    ~~~
-    {
-        "source": "^/S4Cloud_Business_Partner/(.*)$",
-        "target": "$1",
-        "authenticationType": "xsuaa",
-        "destination": "S4Cloud_Business_Partner",
-        "csrfProtection": false
-    }
-    ~~~ 
- 
+<br>
 ## Customize view.xml Code
 Add a list that will display data pulled from the OData service and bound to the _"A_BusinessPartner"_ entity set.  
 Navigate to the "view/View1.view.xml" file, open the XML code editor, and add the following code:
