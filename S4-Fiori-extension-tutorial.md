@@ -55,7 +55,9 @@ File / Folder | Purpose
 ### Prerequisites
    - The "**S4Cloud_Business_Partner**" destination has been configured in you CF sub-account  
    (generally, this would have been done by your sub-account administrator on the sub-account level).   
+   <span style="color:red">
    If you still don't have such destination or equivalent one, ask your sub-account administrator to create it, before you continue with this tutorial. 
+   </span>
 
 ### Bind Application to S/4 HANA OData Cloud Service 
    1. From the command pallet (F1) run the "**Add OData Service**" command
