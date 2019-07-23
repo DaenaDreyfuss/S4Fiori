@@ -62,12 +62,12 @@ File / Folder | Purpose
   ![Alt text](S4_Fiori_Extension_Data/add_odata_service.png?raw=true "Bind Services") 
    2. Select the UI module that you would like to bind to the OData service (**"Select an HTML5 module"**)
    3. Select the destination you would like to use ("**Select S4Cloud_Business_Partner**")
-   4. Verify the following changes files were updated:  
-     - manifest.json file:
-       - "**dataSources**" was added to the 'sap.app' section including the uri to the selected destination
-       - A default "**models**" parameter was added to the model section  
-     - xs-app.json file:
-       - An additional route has been added with the selected destination route (as the first route entry in the "**routes**" section).
+   4. Verify the following files were updated:  
+   - manifest.json file:
+     - "**dataSources**" was added to the 'sap.app' section including the uri to the selected destination
+     - A default "**models**" parameter was added to the model section  
+   - xs-app.json file:
+     - An additional route has been added with the selected destination route (as the first route entry in the "**routes**" section).
   
 ## Customize view.xml Code
 Add a list that will display data pulled from the OData service and bound to the _"A_BusinessPartner"_ entity set.  
