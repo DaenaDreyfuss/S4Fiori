@@ -65,7 +65,7 @@ File / Folder | Purpose
    4. Verify the following changes files were updated:
 	- manifest.json file:
 		- "**dataSources**" was added to the 'sap.app' section including the uri to the selected destination
-		- A default "**models**" parameter was added to the model section . 
+		- A default "**models**" parameter was added to the model section  
 	- xs-app.json file:
     		- An additional route has been added with the selected destination route (as the first route entry in the "**routes**" section).
   
