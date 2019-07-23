@@ -1,9 +1,9 @@
 # Your First S/4 Cloud Extension
 
-This README will guide you through the following process:  
-  1. Create your first **Simple S/4 extension**
-  2. Consume a **Business Partner** service from S/4 cloud - via a Fiori application
-  3. Run the application on your developer workspace
+This guide will help you through the following process:  
+  1. Creating your first **Simple S/4 extension**
+  2. Consuming OData from the **Business Partner** S/4 Cloud service - via a Fiori application
+  3. Running the application on your developer workspace
 
 ## Overview
 <!-- TOC depthFrom:2 depthTo:2 -->
@@ -25,9 +25,10 @@ This README will guide you through the following process:
    2. Select 'Create Dev Space'
    3. Name your Dev Space and select the **SAP Fiori** extension pack 
    4. Select your Dev Space to start developing your application
+   5. Select 'Open Workspace' and select the projects folder
 
-#### Create a Dev Space in Stable
-- Create an S4 Fiori extension project from scratch using a Yeoman generator:   
+#### Develop an S4 Fiori Extension Project
+Create an S4 Fiori extension project from scratch using a Yeoman generator:   
   1. Open the **Terminal** via the menu bar (Terminal-->New Terminal)
   2. In the terminal navigate to the projects folder
   3. Run the **[yo](command:yo)** to start the Yeoman generator
@@ -37,19 +38,21 @@ This README will guide you through the following process:
   4. Select the **Fiori Project** Yeoman generator
         - Specify a project name? (**mta_bp**) 
         - Do you want to create a UAA Service and bind it to the approuter module? (**Yes**)
-        - Do you want to create a Destination Service and bind it to the approuter module? (Yes)
+        - Do you want to create a Destination Service and bind it to the approuter module? (**Yes**)
         - What is the HTML5 module name? (**bp_app**)
         - What is the namespace? (**ns**)
         - What is the UI5 version? (**1.64**)
 	- Which template do you want to use? (**SAPUI5 Application**)
         - What is the view name? (**View1**)
 
- - Create an S4 Fiori extension project using 'Git Clone'
+|
+ Create an S4 Fiori extension project using 'Git Clone'
   1. Open the **Terminal** via the menu bar (Terminal-->New Terminal)
   2. Clone the the following project as seen below:
      ```sh
          > git clone https://github.wdf.sap.corp/i057517/mta_bp.git
      ```
+ |
  
 Upon completion, you will get the following folder structure
 
