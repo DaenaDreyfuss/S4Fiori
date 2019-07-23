@@ -27,7 +27,6 @@ This guide will help you through the following process:
    4. Select your Dev Space to start developing your application
    5. Select 'Open Workspace' and select the projects folder
 
-<br>
 #### Develop an S4 Fiori Extension Project Using YeoMan
   1. Open the **Terminal** via the menu bar (Terminal-->New Terminal)
   2. In the terminal navigate to the projects folder
