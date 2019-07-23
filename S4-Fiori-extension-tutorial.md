@@ -55,7 +55,7 @@ File / Folder | Purpose
 ### Prerequisites
    - The "**S4Cloud_Business_Partner**" destination has been configured in you CF sub-account  
    (generally, this would have been done by your sub-account administrator on the sub-account level).   
-   **If you still don't have such destination or equivalent one, ask your sub-account administrator to create it, before you continue with this tutorial.**
+   **If you still don't have such destination or an equivalent one, ask your sub-account administrator to create one before continuing with this tutorial.**
 
 ### Bind Application to S/4 HANA OData Cloud Service 
    1. From the command pallet (F1) run the "**Add OData Service**" command
@@ -63,13 +63,12 @@ File / Folder | Purpose
    2. Select the UI module that you would like to bind to the OData service (**"Select an HTML5 module"**)
    3. Select the destination you would like to use ("**Select S4Cloud_Business_Partner**")
    4. Verify the following changes files were updated:
-   	- manifest.json file:
+	- manifest.json file:
 		- "**dataSources**" was added to the 'sap.app' section including the uri to the selected destination
 		- A default "**models**" parameter was added to the model section
- 	- xs-app.json file:
+	- xs-app.json file:
     		- An additional route has been added with the selected destination route (as the first route entry in the "**routes**" section).
   
-<br>
 ## Customize view.xml Code
 Add a list that will display data pulled from the OData service and bound to the _"A_BusinessPartner"_ entity set.  
 Navigate to the "view/View1.view.xml" file, open the XML code editor, and add the following code:
