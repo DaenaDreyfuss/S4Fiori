@@ -31,9 +31,6 @@ This guide will help you through the following process:
   1. Open the **Terminal** via the menu bar (Terminal-->New Terminal)
   2. In the terminal navigate to the projects folder
   3. Run the **[yo](command:yo)** to start the Yeoman generator
-    ```sh
-    > yo
-    ```
   4. Select the **Fiori Project** Yeoman generator
         - Specify a project name? (**mta_bp**) 
         - Do you want to create a UAA Service and bind it to the approuter module? (**Yes**)
@@ -54,7 +51,6 @@ File / Folder | Purpose
 `mta.yaml` | Defines your application resources and dependencies
 `xs-security.json` | Defines your application security scopes and roles
 
-<br>
 ## Bind Application to S/4 OData Service   
 ### Prerequisites
    - The "**S4Cloud_Business_Partner**" destination has been configured in you CF sub-account
