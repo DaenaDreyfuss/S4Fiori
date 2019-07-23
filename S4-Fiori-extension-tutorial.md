@@ -1,7 +1,5 @@
 # Your First S/4 Cloud Extension
 
-*Work In Progress - not yet working in Full!*
-
 This README will guide you through the following process:  
   1. Create your first **Simple S/4 extension**
   2. Consume a **Business Partner** service from S/4 cloud - via a Fiori application
