@@ -64,7 +64,7 @@ File / Folder | Purpose
 *This step will guide you through the process of binding your application to OData provided by an external service.*   
 
 ### Prerequisites
-   - The "**S4Cloud_Business_Partner**" destination has been configured in you CF sub-account  
+   The "**S4Cloud_Business_Partner**" destination has been configured in you CF sub-account  
    (generally, this would have been done by your sub-account administrator on the sub-account level).   
    *If you still don't have such destination or an equivalent one, ask your sub-account administrator to create one before continuing with this tutorial.*
 
@@ -136,9 +136,9 @@ We will add a list that will display data pulled from the OData service and boun
     ![Alt text](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/coco_suggestions.png?raw=true "Code completion") 
 
 ## Run Application with Local Approuter
-This step will guide you through the process of running you application localy using the approuter and localy bound services.
+This step will guide you through the process of running you application locally using the approuter and locally bound services.
 
-<img src="https://github.com/i336151/S4Fiori/blob/master/Docs/Images/china.png?raw=true" width="70">|For China testing, you should bind a 'Destination' service instance and an 'Xsuaa' service to your UI application. See [Bind services](#bind-services)|
+<img src="https://github.com/i336151/S4Fiori/blob/master/Docs/Images/china.png?raw=true" width="70">|For China, you should bind a 'Destination' service instance and an 'Xsuaa' service to your UI application. See [Bind services](#bind-services)|
 ---|--- 
 
   1. Open the "**MTA Explorer**" view and select the UI module that you would like to run. 
@@ -167,7 +167,7 @@ This step enables you to bind a local service to your application.
   ![Alt text](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/select_instance.png?raw=true "Select CF Service Insctance")
 
 
-<img src="https://github.com/i336151/S4Fiori/blob/master/Docs/Images/china.png?raw=true" width="70"> |For China testing, select the "s4_cloud_uaa" 'Xsuaa' service, repeat steps 2-4 and select the "s4_cloud_dest" 'Destination' service|
+<img src="https://github.com/i336151/S4Fiori/blob/master/Docs/Images/china.png?raw=true" width="70"> |For China, select the "s4_cloud_uaa" 'Xsuaa' service, repeat steps 2-4 and select the "s4_cloud_dest" 'Destination' service|
 ---|--- 
     
 Once the binding process is finished you should have a ".env" file in your UI module folder (e.g.: bp_app) that contains the VCAP services for the local binding.
