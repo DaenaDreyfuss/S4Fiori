@@ -23,9 +23,9 @@ This guide will help you through the following process:
 ## Create New S4-Fiori Extension Project
 *This step will guide you through generating an S4-Fiori Extension project using a Yeoman Generator.*
 
-### Create a Dev Space in Stable
-   1. Open the Stable WING landscape  
-[https://webide-stable.cfapps.sap.hana.ondemand.com/index.html?extensions=true](https://webide-stable.cfapps.sap.hana.ondemand.com/index.html?extensions=true)
+### Create a Dev Space in China
+   1. Open the China WING landscape  
+[https://consumersa2sd.webide.cfapps.canaryac.vlab-sapcloudplatformdev.cn/index.html](https://consumersa2sd.webide.cfapps.canaryac.vlab-sapcloudplatformdev.cn/index.html)
    2. Select 'Create Dev Space'
    3. Name your Dev Space and select the **SAP Fiori** extension pack 
    4. Select your Dev Space to start developing your application
@@ -45,8 +45,8 @@ This guide will help you through the following process:
 	    - Which template do you want to use? (**SAPUI5 Application**)
         - What is the view name? (**View1**)
  
-![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/important.png?raw=true"|=150x150)| This process can be replaced by cloning the already generated repository via the terminal |
----|------------------------------------------------------------------------
+<img src="https://github.com/i336151/S4Fiori/blob/master/Docs/Images/important.png?raw=true" width="70">| This process can be replaced by cloning the already generated repository via the terminal:  |
+---|---
 ```sh
  > git clone https://github.wdf.sap.corp/i057517/mta_bp.git
 ```
@@ -138,7 +138,7 @@ We will add a list that will display data pulled from the OData service and boun
 ## Run Application with Local Approuter
 This step will guide you through the process of running you application localy using the approuter and localy bound services.
 
-![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/china.png?raw=true")|For China testing, you should bind a 'Destination' service instance and an 'Xsuaa' service to your UI application. See [Bind services](#bind-services)|
+<img src="https://github.com/i336151/S4Fiori/blob/master/Docs/Images/china.png?raw=true" width="70">|For China testing, you should bind a 'Destination' service instance and an 'Xsuaa' service to your UI application. See [Bind services](#bind-services)|
 ---|--- 
 
   1. Open the "**MTA Explorer**" view and select the UI module that you would like to run. 
@@ -167,12 +167,12 @@ This step enables you to bind a local service to your application.
   ![Alt text](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/select_instance.png?raw=true "Select CF Service Insctance")
 
 
-![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/china.png?raw=true")|For China testing, select the "s4_cloud_uaa" 'Xsuaa' service, repeat steps 2-4 and select the "s4_cloud_dest" 'Destination' service|
+<img src="https://github.com/i336151/S4Fiori/blob/master/Docs/Images/china.png?raw=true" width="70"> |For China testing, select the "s4_cloud_uaa" 'Xsuaa' service, repeat steps 2-4 and select the "s4_cloud_dest" 'Destination' service|
 ---|--- 
     
 Once the binding process is finished you should have a ".env" file in your UI module folder (e.g.: bp_app) that contains the VCAP services for the local binding.
 
-![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/important.png?raw=true")| The 'Xsuaa' service that you have selected should contain a '**tenant-mode**' parameter that is set to '**dedicated**. It also must have the Stable landscape whitelisted as explained in the following link: [https://wiki.wdf.sap.corp/wiki/display/webapptoolkit/WING+-+Update+Xsuaa+service+instance](https://wiki.wdf.sap.corp/wiki/display/webapptoolkit/WING+-+Update+Xsuaa+service+instance)|
+<img src="https://github.com/i336151/S4Fiori/blob/master/Docs/Images/important.png?raw=true" width="190">| The 'Xsuaa' service that you have selected should contain a '**tenant-mode**' parameter that is set to '**dedicated**. It also must have the CHINA landscape whitelisted as explained in the following link: [https://wiki.wdf.sap.corp/wiki/display/webapptoolkit/WING+-+Update+Xsuaa+service+instance](https://wiki.wdf.sap.corp/wiki/display/webapptoolkit/WING+-+Update+Xsuaa+service+instance)|
 ---|--- 
   5. Return to [Run Application with Local Approuter](#run-application-with-local-approuter) 
        
