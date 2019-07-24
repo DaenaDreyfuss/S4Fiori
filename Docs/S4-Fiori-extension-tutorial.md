@@ -18,9 +18,9 @@ This guide will help you through the following process:
 - [Deploy Application to Cloud Foundry](#deploy-application-to-cloud-foundry)
 <!-- /TOC -->
 
-### Create New S4-Fiori Extension Project
+## Create New S4-Fiori Extension Project
 
-#### Create a Dev Space in Stable
+### Create a Dev Space in Stable
    1. Open the Stable WING landscape  
 [https://webide-stable.cfapps.sap.hana.ondemand.com/index.html?extensions=true](https://webide-stable.cfapps.sap.hana.ondemand.com/index.html?extensions=true)
    2. Select 'Create Dev Space'
@@ -28,7 +28,7 @@ This guide will help you through the following process:
    4. Select your Dev Space to start developing your application
    5. Select 'Open Workspace' and select the projects folder
 
-#### Develop an S4 Fiori Extension Project Using YeoMan
+### Develop an S4 Fiori Extension Project Using YeoMan
   1. Open the **Terminal** via the menu bar (Terminal-->New Terminal)
   2. In the terminal navigate to the projects folder
   3. Run the **[yo](command:yo)** to start the Yeoman generator
