@@ -93,6 +93,7 @@ Navigate to the "view/View1.view.xml" file, open the XML code editor, and add th
 ~~~
 
 ![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/options.png?raw=true")   | Alternatively, you can open the "_Open With --> Layout Editor_", add a list using the editor, and bind the added list to the _"A_BusinessPartner"_ entity set. 
+----- | ----------------------------
 
 **Code completion**
 
