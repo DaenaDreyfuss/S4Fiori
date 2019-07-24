@@ -1,6 +1,6 @@
 
-# Your First S/4 Cloud Extension
 
+# Your First S/4 Cloud Extension
 This guide will help you through the following process:  
   1. Creating your first **Simple S/4 extension**
   2. Consuming OData from the **Business Partner** S/4 Cloud service - via a Fiori application
@@ -11,7 +11,7 @@ This guide will help you through the following process:
 <!-- TOC depthFrom:2 depthTo:2 -->
 - [Create New S4-Fiori Extension Project](#create-new-s4-fiori-extension-project)
 - [Bind Application to S/4 OData Service](#bind-application-to-s4-odata-service)
-- [Customize view.xml Code](#customize-view.xml-code)
+- [Customize the view.xml Code](#customize-the-view.xml-code)
 - [Run Application with Local Approuter](#run-application-with-local-approuter)
 - [Test Application with Preview](#test-application-with-preview)
 - [Add Additional UI Module](#add-additional-ui-module)
@@ -20,6 +20,7 @@ This guide will help you through the following process:
 <!-- /TOC -->
 
 ## Create New S4-Fiori Extension Project
+*This step will guide you through generating an S4-Fiori Extension project using a Yeoman Generator.*
 
 ### Create a Dev Space in Stable
    1. Open the Stable WING landscape  
@@ -54,10 +55,12 @@ File / Folder | Purpose
 `xs-security.json` | Defines your application security scopes and roles
 
 ## Bind Application to S/4 OData Service   
+*This step will guide you through the process of binding your application to OData provided by an external service.*   
+
 ### Prerequisites
    - The "**S4Cloud_Business_Partner**" destination has been configured in you CF sub-account  
    (generally, this would have been done by your sub-account administrator on the sub-account level).   
-   **If you still don't have such destination or an equivalent one, ask your sub-account administrator to create one before continuing with this tutorial.**
+   *If you still don't have such destination or an equivalent one, ask your sub-account administrator to create one before continuing with this tutorial.*
 
 ### Bind Application to S/4 HANA OData Cloud Service 
    1. From the command pallet (F1) run the "**Add OData Service**" command
@@ -71,40 +74,43 @@ File / Folder | Purpose
         - xs-app.json file:
           - An additional route has been added with the selected destination route (as the first route entry in the "**routes**" section).
   
-## Customize view.xml Code
-Add a list that will display data pulled from the OData service and bound to the _"A_BusinessPartner"_ entity set.  
+## Customize the view.xml Code
+*This step will guide you through the process of editing your application using the 'Layout Editor'.
+We will add a list that will display data pulled from the OData service and bound to the _"A_BusinessPartner"_ entity set.*  
 
    1. Navigate to the "view/View1.view.xml" file
    2. Open the XML code with the 'Layout Editor', Right click on the view file "_Open With --> Layout Editor_"
    3. Add a list using the editor
    4. Bind the added list to the _"A_BusinessPartner"_ entity set
 
-### Code completion
-1. Create an .eslintrc file in the UI module folder (e.g.: bp_app), paste this content and save the file:
-	```
-	{
-	    "plugins": [
-		"@sap/ui5-jsdocs"
-	    ],
-	    "extends": ["plugin:@sap/ui5-jsdocs/recommended", "eslint:recommended"]
-	}
-	```
+## Code completion
+*This step will guide you through the process of using the code completion tools*
 
-2. Open mta_bp/bp_app/package.json, add following **devdependencies** and save the file:
-	```
+  1. Create an .eslintrc file in the UI module folder (e.g.: bp_app), paste this content and save the file:
+	  ```
+	  {
+	      "plugins": [
+		  "@sap/ui5-jsdocs"
+	      ],
+	      "extends": ["plugin:@sap/ui5-jsdocs/recommended", "eslint:recommended"]
+  	  }
+	  ```
+
+  2. Open mta_bp/bp_app/package.json, add following **devdependencies** and save the file:
+	  ```
 	  "eslint": "5.16.0",
 	  "@sap/eslint-plugin-ui5-jsdocs": "2.0.1"
-	```
+	  ```
 
-3. Open mta_bp/bp_app/webapp/Component.js file, add below code to the begining of the file and save the file:  
-	```
-	/**
-	* Strange hack to ensure ts-server will watch changes in the
-	* `node_modules/@openui5/ts-types` dir when running in VSCode.
-	* - See: https://github.com/microsoft/TypeScript/issues/32285.
-	*/
-	/// <reference types="@openui5/ts-types" /> #
-	```
+  3. Open mta_bp/bp_app/webapp/Component.js file, add below code to the begining of the file and save the file:  
+	  ```
+	  /*
+	     Strange hack to ensure ts-server will watch changes in the
+	     `node_modules/@openui5/ts-types` dir when running in VSCode.
+	     See: https://github.com/microsoft/TypeScript/issues/32285.
+	  */
+	  /// <reference types="@openui5/ts-types" /> #
+	  ```
 
 4. In the Terminal, run cd mta_bp/bp_app/ && npm i
 5. Open mta_bp/bp_app/webapp/Component.js file and click on "sap/ui/core/UIComponent".
@@ -119,11 +125,12 @@ Add a list that will display data pulled from the OData service and bound to the
 	* @param {typeof sap.ui.Device} Device
 	*/
 	```
-7. Save the file.
-8. In init function add following code. You are expected to get a list of suggestions for **component1**:  
+  7. Save the file.
+  8. In init function add following code. You are expected to get a list of suggestions for **component1**:  
     ![Alt text](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/coco_suggestions.png?raw=true "Code completion") 
 
 ## Run Application with Local Approuter
+This step will guide you through the process of running you application localy using the approuter and localy bound services.
 
 ![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/china.png?raw=true")|For China testing, you should bind a 'Destination' service instance and an 'Xsuaa' service to your UI application. See [Bind services](#bind-services)|
 ---|--- 
@@ -143,7 +150,8 @@ If your application was bound to an 'Xsuaa' service, you should get a login scre
 After being authenticated you should be able to see the bound backend data from the S4 destination service (S4Cloud_Business_Partner).  
 
 ## Bind services  
-This step enables you to bind a local service to your application.
+This step enables you to bind a local service to your application.  
+
   1. Login to CF via "**View --> Find Command ...**" option (F1). Enter "cf login" and select the "**CF: Login to Cloud Foundary**" command - and fill in your credentials and space details
   2. In the "**MTA Explorer**" right click the desired UI module and select "**Bind Services to a Locally run MTA Module**"    
  ![Alt text](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/bind_service.png?raw=true "Bind Services") 
