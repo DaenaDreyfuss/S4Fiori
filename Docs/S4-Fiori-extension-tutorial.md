@@ -1,3 +1,4 @@
+
 # Your First S/4 Cloud Extension
 
 This guide will help you through the following process:  
@@ -71,33 +72,14 @@ File / Folder | Purpose
   
 ## Customize view.xml Code
 Add a list that will display data pulled from the OData service and bound to the _"A_BusinessPartner"_ entity set.  
-Navigate to the "view/View1.view.xml" file, open the XML code editor, and add the following code:
-~~~
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.bp_app.controller.View1" displayBlock="true">
-	<Shell id="shell">
-		<App id="app">
-			<pages>
-				<Page id="page" title="{i18n>title}">
-					<content>
-					    <List noDataText="Drop list items here" id="list0" items="{/A_BusinessPartner}">
-					        <items>
-					            <StandardListItem type="Navigation" title="List Item 1" description="{FirstName}" icon="sap-icon://picture" id="item0"/>
-					        </items>
-					    </List>
-					</content>
-				</Page>
-			</pages>
-		</App>
-	</Shell>
-</mvc:View>
-~~~
 
-![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/info.png?raw=true") | Alternatively, you can edit your view using the 'Layout Editor' Right click on the view file "_Open With --> Layout Editor_" Add a list using the editor, and bind the added list to the _"A_BusinessPartner"_ entity set. 
------ | ----------------------------
+   1. Navigate to the "view/View1.view.xml" file
+   2. Open the XML code with the 'Layout Editor', Right click on the view file "_Open With --> Layout Editor_"
+   3. Add a list using the editor
+   4. Bind the added list to the _"A_BusinessPartner"_ entity set
 
-**Code completion**
-
-1. Create .eslintrc file in the UI module folder (e.g.: bp_app), paste this content and save the file:
+### Code completion
+1. Create an .eslintrc file in the UI module folder (e.g.: bp_app), paste this content and save the file:
 	```
 	{
 	    "plugins": [
@@ -141,113 +123,76 @@ Navigate to the "view/View1.view.xml" file, open the XML code editor, and add th
     ![Alt text](S4_Fiori_Extension_Data/coco_suggestions.png?raw=true "Code completion") 
 
 ## Run Application with Local Approuter
-**For China testing, you should bind a destination service instance and an uaa service to your UI application. See [Bind services](#bind-services)**
-1. Open the "**MTA Explorer**" view and select the UI module that you would like to run. 
-2. If your UI module **don't require** any resource from the mta.yaml (like: uaa, destination), click on "**Run MTA Module**". This will run an 'npm install' of your approuter module (if the node modules can't be found in the approuter module). 
-**Otherwise**, do the service binding before you run the application. See [Bind services](#bind-services).  
+
+![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/china.png?raw=true")|For China testing, you should bind a 'Destination' service instance and an 'Xsuaa' service to your UI application. See [Bind services](#bind-services)|
+---|--- 
+
+  1. Open the "**MTA Explorer**" view and select the UI module that you would like to run. 
+  2. Select the 'run' inline command next to the UI module you would like to run (green triangle)
+
+Your module doesn't require additional services or you have already bound your services | Your module requires additional services
+---|---
+If you are prompted to bind services select **"Proceed without defining"**. You will then be prompted with a request to run an 'NPM install' on your approuter module | You will be prompted to bind your required services prior to running your application. See [Bind services](#bind-services).  
+
+The **"Debug"** view will open and under the "THREADS" section you will see a running node application. In the "Debug Console" you will be able to find the run application Url.   
+If you performed the run from the "MTA Explorer", the application should open automatically in a new browser tab. 
+    
+In the new browser tab, you should be able to see your running application.   
+If your application was bound to an 'Xsuaa' service, you should get a login screen for the authentication.  
+After being authenticated you should be able to see the bound backend data from the S4 destination service (S4Cloud_Business_Partner).  
 
 ## Bind services  
-If you would like to run your application bound to a UAA or destination service (a.k.a local binding), follow these instructions:  
-1. Login to CF via "**View --> Find Command ...**" option (F1). Enter "cf login" and select the "**CF: Login to Cloud Foundary**" option. Provide details according to instructions.   
-**For China testing, do the CF login via terminal:**   
-      ~~~
-      cf login -a https://api.cf.canaryac.vlab-sapcloudplatformdev.cn
-      ~~~
-2. In the "**MTA Explorer**" select the desired UI module, right click on it and select "**Bind Services to a Locally run MTA Module**" option.    
+This step enables you to bind a local service to your application.
+  1. Login to CF via "**View --> Find Command ...**" option (F1). Enter "cf login" and select the "**CF: Login to Cloud Foundary**" command - and fill in your credentials and space details
+  2. In the "**MTA Explorer**" right click the desired UI module and select "**Bind Services to a Locally run MTA Module**"    
  ![Alt text](S4_Fiori_Extension_Data/bind_service.png?raw=true "Bind Services") 
-  
-3. Select an MTA service that you would like to bind to your application (for instance: uaa_mta_simple). 
- 
-    ![Alt text](S4_Fiori_Extension_Data/select_service.png?raw=true "Select Service from MTA to bind") 
- 
- 4. Bind the selected service to a real instance from the CF account that you logged in  
-    ![Alt text](S4_Fiori_Extension_Data/select_instance.png?raw=true "Select CF Service Insctance")
+  3. Select the service you would like to bind to your application (for instance: uaa_mta_simple). 
+![Alt text](S4_Fiori_Extension_Data/select_service.png?raw=true "Select Service from MTA to bind") 
+ 4. Bind the selected service to a real instance from your Cloud Foundry account  
+  ![Alt text](S4_Fiori_Extension_Data/select_instance.png?raw=true "Select CF Service Insctance")
 
-    **For China testing, select the "s4_cloud_uaa" uaa service**  
-    
-    **Note:**  
-        Do the same local binding steps 2-4, for every service from the mta.yaml that relevant for your run flow scenario. **For China testing, select the "s4_cloud_dest" destination service**
-    
-    Once the binding process is finished you should have an ".env" file in your UI module folder (e.g.: bp_app) with a VCAP service for the local binding.
-        
-    **Note: (For China testing, you can skip this part and navigate to bullet #5)** 
-        
-       - The service that you have selected should contain a '**tenant-mode**' parameter that is set to '**dedicated**'.
-       - If the selected **UAA** service does not yet exposed in the **Stable** landscape as a whitesource, you must do so manually:  
-            1. Navigate to the **xs-security.json** file and update it with following data:  
-                - Update the "**xsappname**" parameter with the equivalent value found in the .env file (located under your UI module).
-                - Add an additional parameter **oauth2-configuration** (after "role-templates") as seen below (if you are not working on the "Stable" landscape, update the respective redirect-uris with your landscape host):
-                    ```sh
-                    "oauth2-configuration": {
-                          "redirect-uris": [
-                          "https://*.stable-aws-01.dev1.sapwebide.net.sap/**"
-                          ]
-                      }
-                    ```    
-            2. In order to update the selected **UAA** service with this new white source list, run the following command in your terminal:
-                ```sh
-                cf update-service <service instance name> -c <xs-security.json file path>
-                e.g.: cf update-service uaa2 -c mta_bp/xs-security.json
-            ```
 
-5. In the "**MTA Explorer**" perform the "**Run MTA Module**". This will run your application. You will promote several questions that need in order to run the application:
-     - "Module <your module name> is missing one or more required services bindings" - since we already did the local binding manually, you can click on **"Proceed without defining"**. 
-     - "Seems like you need to run 'npm install" - click on **"Run npm install now"**.
-     
-     The **"Debug"** view will open and under the "THREADS" section you will see a running node application. In the "Debug Console" you will find the run application Url. If you performed the run from the "MTA Explorer", the application should be opened in a new browser tab directly. If you performed the run from the **"Debug"** view tab, you should copy the application Url and launch it in a new browser tab.  
-    See example:  
-    ![Alt text](S4_Fiori_Extension_Data/mta_explorer.png?raw=true "Run MTA Module")
+![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/china.png?raw=true")|For China testing, select the "s4_cloud_uaa" 'Xsuaa' service, repeat steps 2-4 and select the "s4_cloud_dest" 'Destination' service|
+---|--- 
     
-    In the new browser tab, you should be able to see your running application.   
-    If your application was bound to a UAA service, you should get a login in screen for the authentication.  
-    Once authenticated, you should be able to see the bound backend data from the S4 destination service (S4Cloud_Business_Partner).  
+Once the binding process is finished you should have a ".env" file in your UI module folder (e.g.: bp_app) that contains the VCAP services for the local binding.
 
+![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/important.png?raw=true")| The 'Xsuaa' service that you have selected should contain a '**tenant-mode**' parameter that is set to '**dedicated**. It also must have the Stable landscape whitelisted as explained in the following link: [https://wiki.wdf.sap.corp/wiki/display/webapptoolkit/WING+-+Update+Xsuaa+service+instance](https://wiki.wdf.sap.corp/wiki/display/webapptoolkit/WING+-+Update+Xsuaa+service+instance)|
+---|--- 
+  5. Return to [Run Application with Local Approuter](#run-application-with-local-approuter) 
+       
 ## Test Application with Preview
-If you would like to see your UI's without running your application, you can test your application using a local preview. This is  useful when developing the UI aspects of your application. 
-
-For this follow the following steps: 
-
-1. Create a _localService_ folder under the _webapp_ directory in your UI module with the following content 
-    - create the required files and use the _"copy"_ & _"paste"_ option):
-         * [metadata.xml](https://github.wdf.sap.corp/devx-wing/wing-tutorials/blob/master/Tutorials/S4_Fiori_Extension_Data/metadata.xml)
+Local preview allows you to see your UI's without running your application.
+  1. Create a _localService_ folder under the _webapp_ directory in your UI module with the following content 
+     - create the required files and use the _"copy"_ & _"paste"_ option):
+        * [metadata.xml](https://github.wdf.sap.corp/devx-wing/wing-tutorials/blob/master/Tutorials/S4_Fiori_Extension_Data/metadata.xml)
 	   (In case you used "Add Odata Service" option, this file was downloaded for you)
          * [mockserver.js](https://github.wdf.sap.corp/devx-wing/wing-tutorials/blob/master/Tutorials/S4_Fiori_Extension_Data/mockserver.js)
      
-    - Alternatively, you can open a terminal, navigate to ~/projects and enter the following commands:
-        ```bash
-        cd s4CloudExtensionExampleProject/bp_app/webapp/localService/
-        wget https://github.wdf.sap.corp/raw/devx-wing/wing-tutorials/master/Tutorials/S4_Fiori_Extension_Data/metadata.xml
-        wget https://github.wdf.sap.corp/raw/devx-wing/wing-tutorials/master/Tutorials/S4_Fiori_Extension_Data/mockserver.js
-        ```
-
-2. Add the following files to the _test_ folder under the _webapp_ directory with following content (create the required files and use _"copy"_ & _"paste"_ option):
+  2. Add the following files to the _test_ folder under the _webapp_ directory with following content (create the required files and use _"copy"_ & _"paste"_ option):
      * [initMockServer.js](https://github.wdf.sap.corp/devx-wing/wing-tutorials/blob/master/Tutorials/S4_Fiori_Extension_Data/initMockServer.js)
      * [mockServer.html](https://github.wdf.sap.corp/devx-wing/wing-tutorials/blob/master/Tutorials/S4_Fiori_Extension_Data/mockServer.html)
 
-3. Open manifest.json and validate that mainService.uri has a leading slash: "uri": "/S4Cloud_Business_Partner/"
-4. Navigate to the _"test/mockServer.html"_ file and click on Preview (Menu _Open With --> Preview_)
-
-
-[Run application with local approuter](#run-application-with-local-approuter)
+  3. Open manifest.json and validate that mainService.uri has a leading slash: "uri": "/S4Cloud_Business_Partner/"
+  4. Navigate to the _"test/mockServer.html"_ file and click on Preview (Menu _Open With --> Preview_)
 
 ## Add Additional UI module
-To create a new UI module you will need to follow following steps:
-1. Open the **Terminal** via the menu bar (Terminal-->New Terminal)  
-2. In the terminal navigate to the mta project in which you would to create a new UI module
-3. Run the **[yo](command:yo)** to start the Yeoman generator
+  1. Open the **Terminal** via the menu bar (Terminal-->New Terminal)  
+  2. In the terminal navigate to the mta project in which you would to create a new UI module
+  3. Run the **[yo](command:yo)** to start the Yeoman generator
     ```sh
     > cd ~/projects/mta_bp
     > yo
     ```
-4. Select the **Fiori Module** Yeoman generator
-    - Specify a path to the folder containing the "mta.yaml" file of the MTA project that you would like to update: (/home/user/projects/mta_bp) 
-    - Specify a module name: (HTML5Module)
-    - What is the namespace? (ns)
-    - Which template do you want to use? (SAPUI5 Application)
-    - What is the UI5 version? (1.64)
-    - What is the view name? (View1)
+  4. Select the **Fiori Module** Yeoman generator
+     - Specify a path to the folder containing the "mta.yaml" file of the MTA project that you would like to update: (/home/user/projects/mta_bp) 
+     - Specify a module name: (HTML5Module)
+     - What is the namespace? (ns)
+     - Which template do you want to use? (SAPUI5 Application)
+     - What is the UI5 version? (1.64)
+     - What is the view name? (View1)
 
-Upon completion, a new UI module is created under the selected mta project. The mta.yaml file was updated with a new UI module (under the module section) and the new UI module was added to the UI deployer module (e.g.: **mta_bp_ui_deployer**) as a new required module under the requires section.  
+Upon completion, a new UI module is created under the selected MTA project. The mta.yaml file was updated with a new UI module (under the module section) and the new UI module was added to the UI deployer module (e.g.: **mta_bp_ui_deployer**) as a new required module under the requires section.  
 
    
 ## Build Application
@@ -261,7 +206,7 @@ mbt build -p=cf
 ```  
 
 ## Deploy Application to Cloud Foundry
-Make sure you are logged in to a CF org/space: 
+Make sure you are logged into a CF org/space: 
  ```
 cf login -a <api-endpoint> -o <org> -s <space>
 cd mta_archives 
@@ -274,10 +219,10 @@ To get running applications in the CF, execute the following command:
 cf a
   ```
 Create the runnable url:
-1. Find your approuter application in the list (make sure its status is **"started"**). 
-2. Copy the respective url link as appears in the approuter application. 
-3. Locate the 'sap.app.id' (from the manifest.json file located in your HTML5 module webapp folder) and add it to the copied link (any "." in the id should be removed)
-4. Append the application executable html file to the copied link. 
-5. Open a new web tab and paste the composed link. See example:  
+  1. Find your approuter application in the list (make sure its status is **"started"**). 
+  2. Copy the respective url link as appears in the approuter application. 
+  3. Locate the 'sap.app.id' (from the manifest.json file located in your HTML5 module webapp folder) and add it to the copied link (any "." in the id should be removed)
+  4. Append the application executable html file to the copied link. 
+  5. Open a new web tab and paste the composed link. See example:  
     `https://devx2-tokyo-approuter.cfapps.sap.hana.ondemand.com/nsbp_app/index.html`
 
