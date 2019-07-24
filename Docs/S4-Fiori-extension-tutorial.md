@@ -45,7 +45,7 @@ This guide will help you through the following process:
 	    - Which template do you want to use? (**SAPUI5 Application**)
         - What is the view name? (**View1**)
  
-![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/important.png?raw=true")| This process can be replaced by cloning the already generated repository via the terminal |
+![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/important.png?raw=true"|=150x150)| This process can be replaced by cloning the already generated repository via the terminal |
 ---|------------------------------------------------------------------------
 ```sh
  > git clone https://github.wdf.sap.corp/i057517/mta_bp.git
