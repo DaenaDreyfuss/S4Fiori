@@ -4,8 +4,9 @@
 This guide will help you through the following process:  
   1. Creating your first **Simple S/4 extension**
   2. Consuming OData from the **Business Partner** S/4 Cloud service - via a Fiori application
-  3. Running the application on your developer workspace
-
+  3. Testing and editing your application
+  4. Running your application both locally and remotely
+  
 ## Overview
 <!-- TOC depthFrom:2 depthTo:2 -->
 - [Create New S4-Fiori Extension Project](#create-new-s4-fiori-extension-project)
