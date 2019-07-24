@@ -60,7 +60,7 @@ File / Folder | Purpose
 
 ### Bind Application to S/4 HANA OData Cloud Service 
    1. From the command pallet (F1) run the "**Add OData Service**" command
-  ![Alt text](S4_Fiori_Extension_Data/add_odata_service.png?raw=true "Bind Services") 
+  ![Alt text](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/add_odata_service.png?raw=true "Bind Services") 
    2. Select the UI module that you would like to bind to the OData service (**"Select an HTML5 module"**)
    3. Select the destination you would like to use ("**Select S4Cloud_Business_Partner**")
    4. Verify the following files were updated:  
@@ -109,7 +109,7 @@ Add a list that will display data pulled from the OData service and bound to the
 5. Open mta_bp/bp_app/webapp/Component.js file and click on "sap/ui/core/UIComponent".
 6. There is a lamp under sap.ui.define, click on it and choose "Fix this @sap/ui5-jsdocs/no-jsdoc problem". 
 
-   ![Alt text](S4_Fiori_Extension_Data/coco_lamp.png?raw=true "Code completion") 
+   ![Alt text](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/coco_lamp.png?raw=true "Code completion") 
    
    As a result following jsdoc is added:
 	```
@@ -120,7 +120,7 @@ Add a list that will display data pulled from the OData service and bound to the
 	```
 7. Save the file.
 8. In init function add following code. You are expected to get a list of suggestions for **component1**:  
-    ![Alt text](S4_Fiori_Extension_Data/coco_suggestions.png?raw=true "Code completion") 
+    ![Alt text](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/coco_suggestions.png?raw=true "Code completion") 
 
 ## Run Application with Local Approuter
 
@@ -145,11 +145,11 @@ After being authenticated you should be able to see the bound backend data from 
 This step enables you to bind a local service to your application.
   1. Login to CF via "**View --> Find Command ...**" option (F1). Enter "cf login" and select the "**CF: Login to Cloud Foundary**" command - and fill in your credentials and space details
   2. In the "**MTA Explorer**" right click the desired UI module and select "**Bind Services to a Locally run MTA Module**"    
- ![Alt text](S4_Fiori_Extension_Data/bind_service.png?raw=true "Bind Services") 
+ ![Alt text](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/bind_service.png?raw=true "Bind Services") 
   3. Select the service you would like to bind to your application (for instance: uaa_mta_simple). 
-![Alt text](S4_Fiori_Extension_Data/select_service.png?raw=true "Select Service from MTA to bind") 
+![Alt text](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/select_service.png?raw=true "Select Service from MTA to bind") 
  4. Bind the selected service to a real instance from your Cloud Foundry account  
-  ![Alt text](S4_Fiori_Extension_Data/select_instance.png?raw=true "Select CF Service Insctance")
+  ![Alt text](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/select_instance.png?raw=true "Select CF Service Insctance")
 
 
 ![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/china.png?raw=true")|For China testing, select the "s4_cloud_uaa" 'Xsuaa' service, repeat steps 2-4 and select the "s4_cloud_dest" 'Destination' service|
