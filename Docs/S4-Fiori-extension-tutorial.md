@@ -1,5 +1,6 @@
 
 
+
 # Your First S/4 Cloud Extension
 This guide will help you through the following process:  
   1. Creating your first **Simple S/4 extension**
@@ -41,9 +42,14 @@ This guide will help you through the following process:
         - What is the HTML5 module name? (**bp_app**)
         - What is the namespace? (**ns**)
         - What is the UI5 version? (**1.64**)
-	- Which template do you want to use? (**SAPUI5 Application**)
+	    - Which template do you want to use? (**SAPUI5 Application**)
         - What is the view name? (**View1**)
  
+![](https://github.com/i336151/S4Fiori/blob/master/Docs/Images/important.png?raw=true")| This process can be replaced by cloning the already generated repository via the terminal |
+---|---
+```sh
+ > git clone https://github.wdf.sap.corp/i057517/mta_bp.git
+```
 Upon completion, you will get the following folder structure
 
 File / Folder | Purpose
