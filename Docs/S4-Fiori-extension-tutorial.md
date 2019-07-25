@@ -89,6 +89,49 @@ We will add a list that will display data pulled from the OData service and boun
    3. Add a list using the editor
    4. Bind the added list to the _"A_BusinessPartner"_ entity set
 
+```
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.bp_app.controller.View1" displayBlock="true">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content>
+                        <Table noDataText="Drop column list items here and columns in the area above" items="{path: '/A_BusinessPartner'}" id="table0">
+                            <items>
+                                <ColumnListItem type="Active">
+                                    <cells>
+                                        <Text text="{BusinessPartner}"/>
+                                        <Text text="{BusinessPartnerFullName}"/>
+                                        <Text text="{FirstName}"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                            <columns>
+                                <Column>
+                                    <header>
+                                        <Label text="Partner ID"/>
+                                    </header>
+                                </Column>
+                                <Column>
+                                    <header>
+                                        <Label text="Business Partner Full Name"/>
+                                    </header>
+                                </Column>
+                                <Column>
+                                    <header>
+                                        <Label text="First Name"/>
+                                    </header>
+                                </Column>
+                            </columns>
+                        </Table>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
+```
+
 ## Code completion
 *This step will guide you through the process of using the code completion tools*
 
