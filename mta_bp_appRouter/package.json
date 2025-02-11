@@ -6,7 +6,7 @@
 		"node": "^8.0.0 || ^10.0.0"
 	},
 	"dependencies": {
-		"@sap/approuter": "6.0.1"
+		"@sap/approuter": "16.7.2"
 	},
 	"devDependencies": {
 		"@sap/html5-repo-mock": "*"
